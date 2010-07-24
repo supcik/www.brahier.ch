@@ -6,7 +6,10 @@ register = template.Library()
 @register.simple_tag
 def navigation(active_node_id):
     
+    
     def tree_of(navigation):
+        """ converts the simple navigation array to a tree """
+
         result = []
         for i in navigation:
             node = {
@@ -20,7 +23,9 @@ def navigation(active_node_id):
             result.append(node)
         return result   
     
-    def reduce(tree, level):
+    def tag(tree, level):
+        """ add the level, selected and open attributes of the tree """
+        
         res = False
         for node in tree:
             node['level'] = level
@@ -30,7 +35,7 @@ def navigation(active_node_id):
                 node['selected'] = False
                     
             if node['children'] is not None:
-                node['open'] = reduce(node['children'], level + 1)
+                node['open'] = tag(node['children'], level + 1)
             else:
                 node['open'] = False
             
@@ -40,6 +45,8 @@ def navigation(active_node_id):
         return res
         
     def render(tree, level):
+        """ render the tree in HTML. this is site specific """
+
         indent = " " * level*2
         res = "<ul class=\"nav_tree nav_level_%i\">\n" % level
         for node in tree:
@@ -48,7 +55,8 @@ def navigation(active_node_id):
                 classes.append("nav_selected")
             if node['open']:
                 classes.append("nav_open")
-            res += indent + "  " + "<li id=\"%s\" class=\"%s\">%s" % ("nav_" + node['id'], " ".join(classes), node['text'])
+            res += indent + "  " + "<li id=\"%s\" class=\"%s\">%s" % \
+                ("nav_" + node['id'], " ".join(classes), node['text'])
                 
             if node['children'] is not None \
                 and (node['selected'] or node['open'] or node['level'] < 0):
@@ -58,5 +66,5 @@ def navigation(active_node_id):
         return res
     
     tree = tree_of(NAVIGATION)
-    reduce(tree, 0)
+    tag(tree, 0)
     return render(tree,0)
