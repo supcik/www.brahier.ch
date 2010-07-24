@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<link rel="stylesheet" href="/static/css/blueprint/screen.css"
+	type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/static/css/blueprint/print.css"
+	type="text/css" media="print">
+<!--[if lt IE 8]><link
+    rel="stylesheet"
+    href="/static/css/blueprint/ie.css"
+    type="text/css"
+    media="screen, projection"><![endif]-->
+<link rel="stylesheet"
+	href="/static/css/blueprint/plugins/fancy-type/screen.css"
+	type="text/css" media="screen, projection">
+<link rel="stylesheet"
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/cupertino/jquery-ui.css" stype="text/css" />
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/superfish/css/superfish.css" media="screen">
+<link rel="stylesheet" type="text/css"
+	href="/static/superfish/css/superfish-vertical.css" media="screen">
+<title>Centre Equestre de Corminboeuf - {% block title %}Bienvenu{% endblock %}</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="/static/js/jquery.hoverIntent.minified.js">
+</script>
+<script type="text/javascript" src="/static/superfish/js/superfish.js">
+</script>
+</head>
+<body>
+<div class="container">
+<div id="header" class="span-24 last">
+<div class="headerlogo"><img src="/static/images/logo.jpg"
+	alt="logo"></div>
+<div class="headertitle">
+<h1>Centre Equestre de Corminboeuf</h1>
+</div>
+<div class="headersubtitle">
+Commerce de poneys et de chevaux, Ecole d'équitation, Manifestations hippiques<br></br>
+Famille Brahier, rte de Matran 2, 1720 Corminboeuf
+</div>
+</div>
+
+<div id="breadcrumb" class="span-24 last">
+<div class="span-5">{% block breadcrumb %}&nbsp;{% endblock %}</div>
+<div class="login span-19 last">Login</div>
+</div>
+
+<div class="span-5">  
+{% include "menu.html" %}
+</div>
+<div id="main" class="span-19 last">
+{% block content %}{% endblock%}
+</div>
+<div id="footer" class="span-24 last">
+<div id="copyright">Copyright &copy; 2010 Jacques Supcik | All rights reserved</div>
+<div id="version">Version 0.1.0</div>
+</div>
+</div>
+</body>
+
+</html>

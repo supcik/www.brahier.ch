@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Webcam{% endblock %}
+{% block breadcrumb %}&gt; Webcam{% endblock %}
+{% block content %}
+<h2>Webcam</h2>
+
+<SCRIPT LANGUAGE="JavaScript">
+// Set the BaseURL to the URL of your camera
+var BaseURL = "http://brahier.dyndns.org/cam1/";
+// DisplayWidth & DisplayHeight specifies the displayed width & height of the image.
+// You may change these numbers, the effect will be a stretched or a shrunk image
+var DisplayWidth = "320";
+var DisplayHeight = "240";
+// This is the path to the image generating file inside the camera itself
+var File = "axis-cgi/mjpg/video.cgi?resolution=320x240";
+// No changes required below this point
+var output = "";
+var AppletDir = BaseURL + "java/ama";
+var VideoPath = "axis-cgi/mjpg/video.cgi?resolution=";
+var restOfPath = "";
+var VideoURL = BaseURL + VideoPath;
+output  = '<APPLET archive="ama.jar" codeBase="';
+output += AppletDir + '"';
+output += ' code="ama.MediaApplet" height=';
+output += DisplayHeight;
+output += ' width=';
+output += DisplayWidth;
+output += '>';
+output += '<PARAM NAME="code" VALUE="ama.MediaApplet">';
+output += '<PARAM NAME="archive" VALUE="ama.jar">';
+output += '<PARAM NAME="codebase" VALUE="';
+output += AppletDir + '">';
+output += '<PARAM NAME="ama_cgi-path" VALUE="axis-cgi">';
+output += '<PARAM NAME="cache_archive" VALUE="ama.jar, audio.jar">';
+output += '<PARAM NAME="cache_version" VALUE="1.1.0.0, 1.1.0.0">';
+output += '<PARAM NAME="ama_plugins" VALUE="audio.Audio,">';
+output += '<PARAM NAME="type" VALUE="application/x-java-applet;version=1.4">';
+output += '<PARAM NAME="ama_url" VALUE="';
+output += VideoURL;
+output += DisplayWidth + 'x' + DisplayHeight;
+output += restOfPath +'">';
+output += '</APPLET>'
+document.write(output);
+</SCRIPT>
+
+
+
+{% endblock %}

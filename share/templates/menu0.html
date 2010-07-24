@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("ul.sf-menu").superfish({ 
+            animation: {height:'show'},   // slide-down effect without fade-in 
+            delay:     1200               // 1.2 second delay on mouseout 
+        }); 
+        $(".menufiler div").height($("div#main").height() - $("ul.sf-menu").height());
+    }); 
+</script>
+<ul class="sf-menu sf-vertical">
+	<li><a href="/">Accueil</a></li>
+    <li><a href="/webcam">Webcam</a></li>
+	<li><a href="/">Cours</a>
+	<ul>
+        <li><a href="/">Information</a></li>
+        <li><a href="/">Calendrier</a></li>
+		<li><a href="/">Inscription</a></li>
+	</ul>
+	</li>
+</ul>
+<div class="menufiler"><div></div></div>

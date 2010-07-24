@@ -1,0 +1,86 @@
+body {
+    font-family:'ZapfHumnst BT','ZapfHumnst Dm BT','Trebuchet MS',Arial,Helvetica,sans-serif;
+    font-size: 12pt;  
+    color: #11c
+}
+
+h1 {
+	font-size: 32pt;
+	font-weight: bold;
+	color: #11c
+}
+
+h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #11c
+}
+
+#footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #99c;
+    padding-top: 8px;
+    color: #66c;
+    position: relative;
+    font-size: 10pt;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+#copyright {
+	float: left;
+}
+
+#version {
+	float: right;
+}
+
+#header {
+    margin-top: 20px;
+    margin-bottom: 2px;
+    position: relative;  
+}
+
+.login {
+	text-align: right;
+}
+
+#breadcrumb {
+    font-size: 10pt;
+	margin-top: 2px;
+    margin-bottom: 20px;  
+    border-bottom: 1px solid #99c;
+    border-top: 1px solid #99c;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.headerlogo {
+    float: left;
+}
+
+.headertitle {
+    float: left;
+    position:absolute;
+    top: 15px;
+    left: 200px;
+}
+.headersubtitle {
+    font-size: 14pt;
+	float: left;
+    position:absolute;
+    bottom: 20px;
+    left: 200px;
+}
+
+div.menufiler {
+    clear: both;
+    width: 10em;
+}
+
+.menufiler div {
+    border-left: 1px solid white;
+    border-top: 1px solid #CFDEFF;
+    background-color: #BDD2FF;
+}
