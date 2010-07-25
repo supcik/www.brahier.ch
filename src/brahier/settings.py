@@ -108,7 +108,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'brahier.www',
+    'brahier.account',
+    'brahier.lesson',
 )
+
+AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 if 'DJANGO_MODE' in os.environ and os.environ['DJANGO_MODE'] == 'PROD':
     DEBUG = False
