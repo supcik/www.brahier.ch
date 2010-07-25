@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% load www_extras %}
 {% block title %}Webcam{% endblock %}
-{% block breadcrumb %}&gt; Webcam{% endblock %}
+{% block breadcrumb %}Webcam{% endblock %}
+{% block navigation %}{% navigation 'webcam' %}{% endblock %}
 {% block content %}
 <h2>Webcam</h2>
 

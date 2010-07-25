@@ -1,3 +1,4 @@
+{% load www_extras %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -36,12 +37,19 @@
 </script>
 <script type="text/javascript" src="{{ MEDIA_URL }}superfish/js/superfish.js">
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#leftpanesep").height($("#main").height());
+    }); 
+</script>
 </head>
 <body>
 <div class="container">
 <div id="header" class="span-24 last">
-<div class="headerlogo"><img src="{{ MEDIA_URL }}images/logo.jpg"
-	alt="logo"></div>
+<div class="span-5 headerlogo">
+<img src="{{ MEDIA_URL }}images/logo.jpg" alt="logo"></div>
+
+<div class="span-19 last">
 <div class="headertitle">
 <h1>Centre Equestre de Corminboeuf</h1>
 </div>
@@ -51,14 +59,18 @@ Manifestations hippiques<br></br>
 Famille Brahier, rte de Matran 2, 1720 Corminboeuf
 </div>
 </div>
+</div>
 
 <div id="breadcrumb" class="span-24 last">
 <div class="span-5">{% block breadcrumb %}&nbsp;{% endblock %}</div>
 <div class="login span-19 last">Login</div>
 </div>
 
-<div class="span-5">  
-{% include "menu.html" %}
+<div id="leftpane" class="span-4">  
+{% block navigation %}{% navigation 'home' %}{% endblock %}
+</div>
+<div id="leftpanesep" class="span-1">
+&nbsp;
 </div>
 <div id="main" class="span-19 last">
 {% block content %}{% endblock%}

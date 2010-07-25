@@ -16,6 +16,11 @@ h2 {
     color: #11c
 }
 
+a {
+	text-decoration: none;
+    color: #3d80b3;
+}
+
 #footer {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -38,8 +43,7 @@ h2 {
 
 #header {
     margin-top: 20px;
-    margin-bottom: 2px;
-    position: relative;  
+    margin-bottom: 2px; 
 }
 
 .login {
@@ -56,22 +60,29 @@ h2 {
     padding-left: 2px;
 }
 
-.headerlogo {
-    float: left;
+.headertitle {
+    margin-top: 10px;
 }
 
-.headertitle {
-    float: left;
-    position:absolute;
-    top: 15px;
-    left: 200px;
-}
 .headersubtitle {
     font-size: 14pt;
-	float: left;
-    position:absolute;
-    bottom: 20px;
-    left: 200px;
+}
+
+.nav_tree {
+	padding: 0px;
+	margin: 0px;
+    list-style-type: none;
+}
+
+.nav_node {
+    background-image: url("images/li.png");
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    padding-left: 16px;
+}
+	
+.nav_selected {
+	font-weight: bold;
 }
 
 div.menufiler {
@@ -83,4 +94,10 @@ div.menufiler {
     border-left: 1px solid white;
     border-top: 1px solid #CFDEFF;
     background-color: #BDD2FF;
+}
+
+#leftpanesep {
+    background-image: url("images/dot.png");
+    background-repeat: repeat-y;
+    background-position: 25px;
 }
