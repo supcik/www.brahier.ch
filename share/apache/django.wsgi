@@ -8,6 +8,7 @@ sys.path.append(
     )
 )
 
+os.environ['DJANGO_MODE'] = 'PROD'
 os.environ['DJANGO_SETTINGS_MODULE'] = 'brahier.settings'
 
 import django.core.handlers.wsgi

@@ -10,12 +10,12 @@ NAVIGATION = [
         ['reg_decode_cert', _('Decode Cert'), {}, '/'],
     ]],
     ['doc', _('Documents'), None, {}, [
-        ['doc_manual', _('Documents/Manuals'), {}, '/'],
-        ['doc_faq', _('F.A.Q.'), {}, '/'],
-        ['doc_news', _('News'), {}, '/'],
+        ['doc_manual', _('Documents/Manuals'), '/', {}],
+        ['doc_faq', _('F.A.Q.'), '/', {}],
+        ['doc_news', _('News'), '/', {}],
     ]],
     ['fmh', _('FMH'), None, {}, [
-        ['fmh_revoke', _('Revoke'), {}, '/'],
+        ['fmh_revoke', _('Revoke'), '/', {}],
     ]],
-    ['admin', _('Admin'), {}, reverse('admin:index')],
+    ['admin', _('Admin'), reverse('admin:index'), {}],
 ]

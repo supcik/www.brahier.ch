@@ -5,8 +5,7 @@ import os
 #import logging.handlers
 #import string
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+VERSION = "0.1.0"
 
 ADMINS = (
     ('Jacques Supcik', 'jacques@supcik.net'),
@@ -58,10 +57,6 @@ USE_L10N = True
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_PATH, SHARE, 'static')
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -76,6 +71,16 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    "django.contrib.messages.context_processors.messages",
+    "brahier.context_processors.version",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,3 +109,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'brahier.www',
 )
+
+if 'DJANGO_MODE' in os.environ and os.environ['DJANGO_MODE'] == 'PROD':
+    DEBUG = False
+    VERSION += "-prod"
+    MEDIA_URL = 'http://supcik.github.com/www.brahier.ch/static/'
+else:
+    DEBUG = True
+    VERSION += "-dev"
+    MEDIA_URL = '/static/'
+
+TEMPLATE_DEBUG = DEBUG

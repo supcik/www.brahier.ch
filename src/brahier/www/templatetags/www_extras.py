@@ -1,8 +1,10 @@
 from django import template
 from brahier.navigation import NAVIGATION
 
+ALWAYS_OPEN = 0
+
 register = template.Library()
-    
+
 @register.simple_tag
 def navigation(active_node_id):
     
@@ -55,11 +57,15 @@ def navigation(active_node_id):
                 classes.append("nav_selected")
             if node['open']:
                 classes.append("nav_open")
-            res += indent + "  " + "<li id=\"%s\" class=\"%s\">%s" % \
-                ("nav_" + node['id'], " ".join(classes), node['text'])
-                
+            res += indent + "  " + "<li id=\"%s\" class=\"%s\">" % \
+                ("nav_" + node['id'], " ".join(classes))
+            if node['url'] is None or node['selected']:
+                res += node['text']
+            else:
+                res += "<a href=\"%s\">%s</a>" % (node['url'], node['text'])
             if node['children'] is not None \
-                and (node['selected'] or node['open'] or node['level'] < 0):
+                and (node['selected'] or node['open'] \
+                     or node['level'] < ALWAYS_OPEN):
                 res += render(node['children'], level+1)
             res += "</li>\n"
         res += indent + "</ul>\n"
