@@ -2,10 +2,10 @@
 {% load www_extras %}
 {% block title %}Accueil{% endblock %}
 {% block breadcrumb %}Accueil{% endblock %}
-{% block navigation %}{% navigation request 'home' %}{% endblock %}
+{% block navigation %}{% navigation request '' %}{% endblock %}
 {% block content %}
 <h2>Bienvenu sur le site du Centre Equestre de Corminboeuf</h2>
-</p>
-<img src="{{ MEDIA_URL}}images/home.jpg">
+
+ Profile de {{ user.username }}
 
 {% endblock %}

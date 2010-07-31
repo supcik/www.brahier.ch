@@ -1,6 +1,4 @@
-{% load www_extras %}
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
+{% load www_extras %}<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/screen.css"
@@ -59,11 +57,20 @@ Famille Brahier, rte de Matran 2, 1720 Corminboeuf
 
 <div id="breadcrumb" class="span-24 last">
 <div class="span-5">{% block breadcrumb %}&nbsp;{% endblock %}</div>
-<div class="login span-19 last">Login</div>
+<div class="login span-19 last">
+{% if user.is_authenticated %}
+<a href="/accounts/profile">{{ user.username }}
+{% if user.get_full_name %}({{ user.get_full_name }}){% endif %}
+</a> |
+<a href="/accounts/logout">Logout</a>
+{% else %}
+<a href="/accounts/login">Login</a>
+{% endif %}
+</div>
 </div>
 
 <div id="leftpane" class="span-4">  
-{% block navigation %}{% navigation 'home' %}{% endblock %}
+{% block navigation %}{% navigation request 'home' %}{% endblock %}
 </div>
 <div id="leftpanesep" class="span-1">
 &nbsp;

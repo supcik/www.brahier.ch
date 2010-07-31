@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load www_extras %}
+{% block title %}Accueil{% endblock %}
+{% block breadcrumb %}Accueil{% endblock %}
+{% block navigation %}{% navigation request '' %}{% endblock %}
+{% block content %}
+<h2>Bienvenu sur le site du Centre Equestre de Corminboeuf</h2>
+
+{% if form.errors %}
+<div class="span-18 last error">Votre nom d'utilisateur ou votre mot de passe
+sont erronés. Veuillez essayer à nouveau.</div>
+{% endif %}
+
+<form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+<fieldset class="span-18 last">
+  <div class="span-5">{{ form.username.label_tag }}</div>
+  <div class="last">{{ form.username }}</div>
+
+  <div class="span-5">{{ form.password.label_tag }}</div>
+  <div class="last">{{ form.password }}</div>
+ 
+  <input type="submit" value="login" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</fieldset>
+</form>
+
+<a href="">J'ai oublié mon mot de passe</a><br></br>
+<a href="">Je souhaite créer un nouveau compte</a>
+
+{% endblock %}

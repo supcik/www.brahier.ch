@@ -6,7 +6,7 @@ ALWAYS_OPEN = 0
 register = template.Library()
 
 @register.simple_tag
-def navigation(active_node_id):
+def navigation(request, active_node_id):
     
     def tree_of(navigation):
         """ converts the simple navigation array to a tree """
@@ -30,7 +30,7 @@ def navigation(active_node_id):
         res = False
         for node in tree:
             node['level'] = level
-            if active_node_id is not None and node['id'] == active_node_id:
+            if active_node_id != '' and node['id'] == active_node_id:
                 node['selected'] = True
             else:
                 node['selected'] = False
