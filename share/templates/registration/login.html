@@ -12,19 +12,28 @@ sont erronés. Veuillez essayer à nouveau.</div>
 {% endif %}
 
 <form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
-<fieldset class="span-18 last">
-  <div class="span-5">{{ form.username.label_tag }}</div>
-  <div class="last">{{ form.username }}</div>
+<fieldset>
+<div>
+  <div class="fieldlabel">{{ form.username.label_tag }}</div>
+  <div class="fieldvalue">{{ form.username }}</div>
+  <div class="clear"></div>
+</div>
 
-  <div class="span-5">{{ form.password.label_tag }}</div>
-  <div class="last">{{ form.password }}</div>
- 
+<div>
+  <div class="fieldlabel">{{ form.password.label_tag }}</div>
+  <div class="fieldvalue">{{ form.password }}</div>
+  <div class="clear"></div>
+</div>
+
+<div style="margin-top: 10px;">
   <input type="submit" value="login" />
   <input type="hidden" name="next" value="{{ next }}" />
+  <div class="clear"></div>
+</div>
 </fieldset>
 </form>
 
 <a href="">J'ai oublié mon mot de passe</a><br></br>
-<a href="">Je souhaite créer un nouveau compte</a>
+<a href="/accounts/new/">Je souhaite créer un nouveau compte</a>
 
 {% endblock %}

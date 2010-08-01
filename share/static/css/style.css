@@ -101,3 +101,38 @@ div.menufiler {
     background-repeat: repeat-y;
     background-position: 25px;
 }
+
+div.fieldlabel {
+	float: left;
+	margin: 0.3em 0;
+	width: 190px;
+}
+
+div.fieldvalue {
+	float: left;
+	clear: right;
+}
+
+.fielderror input {
+    border-color: red;
+}
+
+div.errormsg {
+    float: left;
+    margin-top: 0.5em;
+    color: #8A1F11;
+    font-size: 10pt;
+}
+
+.errormsg ul {
+    margin-bottom: 0px;
+    list-style: none;
+}
+
+div.ui-datepicker {
+    font-size: 10pt;
+}
+
+ul.ui-autocomplete {
+    font-size: 10pt;
+}
