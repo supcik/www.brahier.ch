@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load www_extras %}
+{% block title %}Création d'un nouveau compte{% endblock %}
+{% block breadcrumb %}Accueil{% endblock %}
+{% block navigation %}{% navigation request '' %}{% endblock %}
+{% block content %}
+<h2>Demande de création d'un nouveau compte</h2>
+
+<form action="/accounts/new/" method="post">{% csrf_token %}
+  <fieldset>
+  
+  <script type="text/javascript">
+    $(function() {
+        $('#id_date_of_birth').datepicker({
+            dateFormat: 'dd.mm.yy',
+            dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+            monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin',
+                              'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Dec'],
+            changeMonth: true,
+            changeYear: true,
+            firstDay: 1,
+            yearRange: '-130:+0'
+        });
+
+        $("#id_location").autocomplete({
+            source: "/tools/cities/",
+            minLength: 2
+        });
+    });
+
+    
+  </script>
+
+  <div{% if form.username.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_username">Nom d'utilisateur 
+    <span style="color:red">*</span></label></div>
+    <div class="fieldvalue">{{ form.username }}</div>
+    <div class="errormsg">{{ form.username.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.password.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_password">Mot de passe 
+    <span style="color:red">*</span></label></div>
+    <div class="fieldvalue">{{ form.password }}</div>
+    <div class="errormsg">{{ form.password.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.first_name.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_first_name">Prénom
+    <span style="color:red">*</span></label></div>
+    <div class="fieldvalue">{{ form.first_name }}</div>
+    <div class="errormsg">{{ form.first_name.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.last_name.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_first_name">Nom de famille
+    <span style="color:red">*</span></label></div>
+    <div class="fieldvalue">{{ form.last_name }}</div>
+    <div class="errormsg">{{ form.last_name.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.date_of_birth.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_first_name">Date de naissance
+    </label></div>
+    <div class="fieldvalue">{{ form.date_of_birth }}</div>
+    <div class="errormsg">{{ form.date_of_birth.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.address.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_address">Adresse
+    </label></div>
+    <div class="fieldvalue">{{ form.address }}</div>
+    <div class="errormsg">{{ form.address.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.zip_code.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_zip_code">NPA
+    </label></div>
+    <div class="fieldvalue">{{ form.zip_code }}</div>
+    <div class="errormsg">{{ form.zip_code.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.location.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_location">Localité
+    </label></div>
+    <div class="fieldvalue">{{ form.location }}</div>
+    <div class="errormsg">{{ form.location.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.phone_number.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_phone_number">Numéro de téléphone
+    </label></div>
+    <div class="fieldvalue">{{ form.phone_number }}</div>
+    <div class="errormsg">{{ form.phone_number.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div{% if form.mobile_number.errors %} class="fielderror"{% endif %}>
+    <div class="fieldlabel"><label for="id_phone_number">Numéro de portable
+    </label></div>
+    <div class="fieldvalue">{{ form.mobile_number }}</div>
+    <div class="errormsg">{{ form.mobile_number.errors }}</div>
+    <div class="clear"></div>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <input type="submit" value="Sumbit" />
+    <div class="clear"></div>
+  </div>
+
+  </fieldset>
+</form>
+
+{% endblock %}

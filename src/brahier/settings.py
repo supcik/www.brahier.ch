@@ -108,6 +108,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'brahier.www',
+    'brahier.tool',
     'brahier.account',
     'brahier.lesson',
 )
